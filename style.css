@@ -1,30 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  label, input {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    display: block;
-    margin: 10px auto;
-  }
-  
-  #result {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #FF6B6B, #FFA07A);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  max-width: 600px; /* Increase the container width */
+  padding: 40px; /* Increase padding */
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Increase box shadow */
+}
+
+h1 {
+  font-size: 36px; /* Increase the title font size */
+  margin-bottom: 20px;
+  color: black;
+}
+
+label, input {
+  display: block;
+  margin-bottom: 20px; /* Increase margin */
+  width: 100%;
+  font-size: 20px; /* Increase font size */
+}
+
+button {
+  display: block;
+  margin: 20px auto; /* Increase margin */
+  padding: 15px 30px; /* Increase padding */
+  background-color: #FF6B6B;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px; /* Increase font size */
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #FF4500;
+}
+
+#result, #total-duration {
+  margin-top: 30px; /* Increase margin */
+  text-align: center;
+  font-size: 24px; /* Increase font size */
+}

@@ -1,5 +1,7 @@
-// Define an array to store the durations of all time intervals
+// Define arrays to store the durations of all time intervals, undone durations, and a counter for undone actions
 const allDurations = [];
+const undoneDurations = [];
+let undoneCount = 0;
 
 function calculateTime() {
   const startTime = document.getElementById("start-time").value;
@@ -23,6 +25,10 @@ function calculateTime() {
   // Store the current duration in the array
   allDurations.push(timeDiffMs);
 
+  // Clear the undone durations array and reset the undone count
+  undoneDurations.length = 0;
+  undoneCount = 0;
+
   // Calculate the total duration of all intervals
   const totalDurationMs = allDurations.reduce((acc, duration) => acc + duration, 0);
   const totalHours = Math.floor(totalDurationMs / (1000 * 60 * 60));
@@ -31,4 +37,42 @@ function calculateTime() {
   // Display the total duration
   const totalDiv = document.getElementById("total-duration");
   totalDiv.innerHTML = `Total duration: ${totalHours} hours and ${totalMinutes} minutes`;
+}
+
+function undo() {
+  if (allDurations.length > 0) {
+    // Remove the last recorded duration from the array
+    const undoneDuration = allDurations.pop();
+
+    // Add the undone duration to the undone durations array
+    undoneDurations.push(undoneDuration);
+    
+    // Calculate the updated total duration
+    const totalDurationMs = allDurations.reduce((acc, duration) => acc + duration, 0);
+    const totalHours = Math.floor(totalDurationMs / (1000 * 60 * 60));
+    const totalMinutes = Math.floor((totalDurationMs % (1000 * 60 * 60)) / (1000 * 60));
+
+    // Update the total duration display
+    const totalDiv = document.getElementById("total-duration");
+    totalDiv.innerHTML = `Total duration: ${totalHours} hours and ${totalMinutes} minutes`;
+  }
+}
+
+function redo() {
+  if (undoneDurations.length > 0) {
+    // Remove the last undone duration from the array
+    const redoneDuration = undoneDurations.pop();
+
+    // Add the redone duration back to the allDurations array
+    allDurations.push(redoneDuration);
+
+    // Calculate the updated total duration
+    const totalDurationMs = allDurations.reduce((acc, duration) => acc + duration, 0);
+    const totalHours = Math.floor(totalDurationMs / (1000 * 60 * 60));
+    const totalMinutes = Math.floor((totalDurationMs % (1000 * 60 * 60)) / (1000 * 60));
+
+    // Update the total duration display
+    const totalDiv = document.getElementById("total-duration");
+    totalDiv.innerHTML = `Total duration: ${totalHours} hours and ${totalMinutes} minutes`;
+  }
 }
