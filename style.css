@@ -63,3 +63,19 @@ button:hover {
   font-size: 24px; /* Increase font size */
   color: black;
 }
+.contact-options {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+.contact-options a {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-options img {
+  width: 50px;
+  height: 50px;
+}
