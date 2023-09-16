@@ -36,6 +36,7 @@ label, input {
   margin-bottom: 20px; /* Increase margin */
   width: 100%;
   font-size: 20px; /* Increase font size */
+  color:black;
 }
 
 button {
